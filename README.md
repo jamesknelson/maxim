@@ -1,4 +1,4 @@
-# Maxim
+# Maxim.js
 
 *|ˈmaksɪm| n. a short, pithy statement expressing a general truth or rule of conduct*
 
