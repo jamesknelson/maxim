@@ -1,0 +1,35 @@
+{
+  "name": "maxim",
+  "version": "0.0.1",
+  "description": "Maxim provides a simple way to structure JavaScript applications, letting you focus on the parts that matter.",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesknelson/maxim.git"
+  },
+  "keywords": [
+    "maxim",
+    "structure",
+    "flux",
+    "rx",
+    "rxjs"
+  ],
+  "author": "James K Nelson <james@jamesknelson.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamesknelson/maxim/issues"
+  },
+  "homepage": "https://github.com/jamesknelson/maxim",
+  "dependencies": {
+    "core-js": "^0.9.16",
+    "invariant": "^2.1.0",
+    "rx": "^2.5.3"
+  },
+  "devDependencies": {
+    "babel": "^5.5.6"
+  }
+}
