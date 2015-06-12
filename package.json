@@ -1,6 +1,6 @@
 {
   "name": "maxim",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Maxim provides a simple way to structure JavaScript applications, letting you focus on the parts that matter.",
   "main": "lib/index.js",
   "scripts": {
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/jamesknelson/maxim",
   "dependencies": {
-    "core-js": "^0.9.16",
     "invariant": "^2.1.0",
     "rx": "^2.5.3"
   },
