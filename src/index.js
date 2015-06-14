@@ -5,7 +5,7 @@ import model from "./model";
 import reducer from "./reducer";
 
 
-export function initialize({controls = {}, models = {}, reducers = {}, actors = {}}) {
+export function initialize({controls = {}, models = {}, reducers = {}, actors = []}) {
   const dispatcher = new Dispatcher;
 
   const Actions = {};
@@ -50,7 +50,7 @@ export function initialize({controls = {}, models = {}, reducers = {}, actors = 
 
   // Setup Actors, but don't allow them to run actions while running.
   dispatcher.dispatchable = false;
-  for (let [name, builder] of Object.entries(actors)) {
+  for (let builder of actors) {
     builder(Actions, AsyncReplayables);
   }
   dispatcher.dispatchable = true;
