@@ -1,6 +1,6 @@
 {
   "name": "maxim",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Maxim provides a simple way to structure JavaScript applications, letting you focus on the parts that matter.",
   "main": "lib/index.js",
   "scripts": {

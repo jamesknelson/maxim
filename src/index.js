@@ -13,9 +13,12 @@ export function initialize({controls = {}, models = {}, reducers = {}, actors = 
   const Replayables = {};
   const AsyncReplayables = {};
 
+  // Don't allow actions to be run during the setup phase
+  dispatcher.dispatchable = false;
+
   // Setup Controls
   for (let [name, builder] of Object.entries(controls)) {
-    const out = control(builder, dispatcher, Replayables);
+    const out = control(builder, dispatcher, Replayables, Actions);
 
     Actions[name] = out.Actions;
     Observables[name] = out.Observables;
@@ -48,11 +51,11 @@ export function initialize({controls = {}, models = {}, reducers = {}, actors = 
 
   Object.freeze(AsyncReplayables);
 
-  // Setup Actors, but don't allow them to run actions while running.
-  dispatcher.dispatchable = false;
   for (let builder of actors) {
     builder(Actions, AsyncReplayables);
   }
+
+  // Allow actions to be run once setup completes
   dispatcher.dispatchable = true;
 
   // Initialize

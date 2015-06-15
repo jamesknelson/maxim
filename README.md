@@ -53,7 +53,7 @@ The arguments and return values of these modules fit into the following categori
 
 A Control specifies a group of Action functions. Action functions are the inputs to the app, being called in response to things like the user pressing buttons, navigating to a new page, or data arriving from the server.
 
-Control actions can cause side effects like making requests to a HTTP server. They can also call other actions on the same Control - but only on subsequent ticks. For example, a `fetch` action may make a HTTP request, and then call an associated `response` action when the response is received.
+Control actions can cause side effects like making requests to a HTTP server. They can also call other actions - but only on subsequent ticks. For example, a `fetch` action may make a HTTP request, and then call an associated `response` action when the response is received.
 
 The reason subsequent action calls must be on a separate tick is that Maxim's dispatcher prevents an Action from being run if another action is in progress. This makes your code easier to reason about, and makes it harder to produce unintended infinite loops. If you really need to call one action from within another (which you probably don't), you can do so in the next tick by using `setTimeout`.
 
@@ -110,9 +110,9 @@ const app = initialize({
   models: {
     Navigation: NavigationModel,
   },
-  actors: {
+  actors: [
     UserInterface: UserInterfaceActor
-  },
+  ],
 });
 ```
 

@@ -1,11 +1,11 @@
 import Rx from "rx";
 
 
-export default function control(builder, dispatcher, Replayables) {
+export default function control(builder, dispatcher, Replayables, AllActions) {
   const Observables = {};
   const Actions = {};
 
-  const functions = builder(Actions, Replayables);
+  const functions = builder(AllActions, Replayables);
 
   for (let [name, fn] of Object.entries(functions)) {
     const subject = new Rx.Subject();
