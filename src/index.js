@@ -45,14 +45,8 @@ export function initialize({controls = {}, models = {}, reducers = {}, actors = 
 
   setupFns.forEach(fn => fn());
 
-  for (let [name, replayable] of Object.entries(Replayables)) {
-    AsyncReplayables[name] = replayable.observeOn(Rx.Scheduler.default);
-  }
-
-  Object.freeze(AsyncReplayables);
-
   for (let builder of actors) {
-    builder(Actions, AsyncReplayables);
+    builder(Actions, Replayables);
   }
 
   // Allow actions to be run once setup completes

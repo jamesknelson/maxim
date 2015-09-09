@@ -55,7 +55,7 @@ A Control specifies a group of Action functions. Action functions are the inputs
 
 Control actions can cause side effects like making requests to a HTTP server. They can also call other actions - but only on subsequent ticks. For example, a `fetch` action may make a HTTP request, and then call an associated `response` action when the response is received.
 
-The reason subsequent action calls must be on a separate tick is that Maxim's dispatcher prevents an Action from being run if another action is in progress. This makes your code easier to reason about, and makes it harder to produce unintended infinite loops. If you really need to call one action from within another (which you probably don't), you can do so in the next tick by using `setTimeout`.
+The reason subsequent action calls must be on a separate tick is that Maxim's dispatcher prevents an Action from being run if another action is in progress. This makes your code easier to reason about, and makes it harder to produce unintended infinite loops. If you really need to call one action from within another (which you probably don't), you can do so in the next tick by using `setTimeout`, or by using Rx's `observeOn` method.
 
 Each Control can specify an `initialize` action, which is automatically called by Maxim once the app is ready to start.
 
